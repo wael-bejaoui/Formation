@@ -13,7 +13,6 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-{% block body %}
 
     <header id="header">
         <nav class="navbar navbar-default navbar-static-top" role="banner">
@@ -26,24 +25,24 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand">
-                        <a href="{{ asset('index.html.twig')}}"><h1>Le Portail de La Formatiton</h1></a>
+                        <a href="{{ path('home') }}"><h1>Le Portail</h1></a>
                     </div>
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="menu">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation"><a href="{{ asset('index.html')}}" class="active">Accueil</a></li>
-                            <li role="presentation"><a href="{{ asset('about.html')}}">About Us</a></li>
-                            <li role="presentation"><a href="{{ asset('services.html')}}">Softwares</a></li>
-                            <li role="presentation"><a href="{{ asset('gallery.html')}}">Formations</a></li>
-                            <li role="presentation"><a href="{{ asset('contact.html')}}">Contact</a></li>
+                            <li role="presentation"><a href="{{ path('home') }}" class="active">Accueil</a></li>
+                            <li role="presentation"><a href="{{ path('about') }}">About Us</a></li>
+                            <li role="presentation"><a href="{{ path('formation') }}">Formations</a></li>
+                            <li role="presentation"><a href="{{ path('soft') }}">Softwares</a></li>
+                            <li role="presentation"><a href="{{ path('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
-
+    {% block body %}
     <div class="slider">
         <div id="about-slider">
             <div id="carousel-slider" class="carousel slide" data-ride="carousel">
@@ -56,14 +55,14 @@
 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{ asset('img/2.jpg')}}" class="img-responsive" alt="">
+                        <img src="img/2.jpg" class="img-responsive" alt="">
                         <div class="carousel-caption">
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
-                                <h2><span>Formations</span></h2>
+                                <h2><span>En Apprendre Toujours Plus</span></h2>
                             </div>
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-                                    <p>En Apprendre Toujours Plus</p>
+                                    <p>Vous trouverez désormais l'ensemble du catalogue de formations</p>
                                 </div>
                             </div>
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
@@ -80,14 +79,14 @@
                     </div>
 
                     <div class="item">
-                        <img src="{{ asset('img/2.jpg')}}" class="img-responsive" alt="">
+                        <img src="img/2.jpg" class="img-responsive" alt="">
                         <div class="carousel-caption">
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">
-                                <h2>Softwares</h2>
+                                <h2>Se Former Autrement</h2>
                             </div>
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-                                    <p>En Apprendre Toujours Plus</p>
+                                    <p>Vous trouverez désormais l'ensemble du catalogue de formations</p>
                                 </div>
                             </div>
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">
@@ -103,14 +102,14 @@
                         </div>
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/2.jpg')}}" class="img-responsive" alt="">
+                        <img src="img/2.jpg" class="img-responsive" alt="">
                         <div class="carousel-caption">
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
-                                <h2>Services</h2>
+                                <h2>Apprentissage sans limite</h2>
                             </div>
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-                                    <p>En Apprendre Toujours Plus</p>
+                                    <p>Vous trouverez désormais l'ensemble du catalogue de formations</p>
                                 </div>
                             </div>
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
@@ -143,16 +142,16 @@
             <div class="text-center">
                 <h2>Découvrez notre large choix de formations</h2>
                 <div class="col-md-10 col-md-offset-1">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quod voluptate consequuntur ad quasi,
-                        dolores obcaecati ex aliquid, dolor provident accusamus omnis dolorum ipsam. Voluptatem ipsum expedita, corporis facilis laborum asperiores nostrum!
-                        Amet porro numquam ratione temporibus quia dolorem sint lorem voluptates quasi mollitia.</p>
+                    <p>Nos formateurs sont des experts dont les compétences sont reconnues dans leurs domaines respectifs.
+                        Ils conçoivent des formations adaptées à votre niveau et composées de courtes séquences vidéo
+                        pour un apprentissage optimal.</p>
                 </div>
 
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="btn-gamp"><a href="#">Learn More</a></div>
+                    <div class="btn-gamp"><a href="{{ path('about') }}">About Us</a></div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="gamp-btn"><a href="#">download</a></div>
+                    <div class="gamp-btn"><a href="#">Contact</a></div>
                 </div>
 
             </div>
@@ -163,27 +162,27 @@
     <div class="services">
         <div class="container">
             <div class="text-center">
-                <h2>consectetur adipisicing elit</h2>
+                <h2>Se Former Autrement</h2>
             </div>
             <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                 <i class="fa fa-heart-o"></i>
-                <h3>Fully Responsive</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nam numquam voluptates cumque inventore, quibusdam corporis consequatur amet.</p>
+                <h3>Design</h3>
+                <p>Il est très facile d’apprendre le design web depuis chez vous grâce à nos formations vidéo. Apprenez l’HTML5, les CSS et JavaScript. Maîtrisez WordPress et initiez-vous aux dernières tendances du design web.</p>
             </div>
             <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                 <i class="fa fa-cloud"></i>
-                <h3>Retina Ready</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nam numquam voluptates cumque inventore, quibusdam corporis consequatur amet.</p>
+                <h3>Marketing</h3>
+                <p>Formez-vous sur un aspect spécifique du marketing, ou apprenez tout sur le SEO, les réseaux sociaux, l’e-mail marketing, etc. Planifiez une stratégie commerciale gagnante en utilisant les outils les plus performants.</p>
             </div>
             <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
                 <i class="fa fa-book"></i>
-                <h3>Fresh and Clean</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nam numquam voluptates cumque inventore, quibusdam corporis consequatur amet.</p>
+                <h3>Compétences Professionnelles</h3>
+                <p>Passez à la vitesse supérieure dans le développement de votre carrière. Améliorez vos compétences en communication, négociation, résolution de conflits, gestion du temps, management et leadership.</p>
             </div>
             <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">
                 <i class="fa fa-gear"></i>
-                <h3>Easy to Customize</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nam numquam voluptates cumque inventore, quibusdam corporis consequatur amet.</p>
+                <h3>Outils Bureautiques</h3>
+                <p>Maîtrisez les outils bureautiques que vous utilisez quotidiennement, ou apprenez à utiliser des logiciels phares en entreprise pour décrocher un nouvel emploi. Ainsi, formez-vous sur Microsoft Excel, SharePoint, Google Docs, etc.</p>
             </div>
         </div>
     </div>
@@ -191,8 +190,8 @@
     <section class="action">
         <div class="container">
             <div class="left-text hidden-xs">
-                <h4>Amet porro numquam ratione</h4>
-                <p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ut explicabo magni sapiente.</em><br><br>Inventore at quia, vel in repellendus, cumque dolorem autem ad quidem mollitia porro blanditiis atque rerum debitis eveniet nostrum aliquam. Sint aperiam expedita sapiente amet officia quis perspiciatis adipisci, iure dolorem esse exercitationem!</p>
+                <h4>PRENEZ VOTRE AVENIR EN MAIN</h4>
+                <p><em>Voulez-vous booster votre carrière professionnelle ? Ou bien voulez-vous simplement apprendre ce dont vous aviez toujours rêvé ? Alors prenez votre avenir en main.</em><br><br>Nos formateurs sont des experts dont les compétences sont reconnues dans leurs domaines respectifs. Ils conçoivent des formations adaptées à votre niveau et composées de courtes séquences vidéo pour un apprentissage optimal.</p>
             </div>
             <div class="right-image hidden-xs"></div>
         </div>
@@ -201,33 +200,33 @@
     <div class="gallery">
         <div class="text-center">
             <h2>Gallery</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quod voluptate consequuntur ad quasi, dolores obcaecati ex aliquid, dolor provident </p>
+            <p>Vous trouverez désormais l'ensemble du catalogue de formations.</p>
         </div>
         <div class="container">
             <div class="col-md-4">
                 <figure class="effect-marley">
-                    <img src="{{ asset('img/8.jpg')}}" alt="" class="img-responsive"/>
+                    <img src="img/8.jpg" alt="" class="img-responsive"/>
                     <figcaption>
-                        <h4>sweet marley</h4>
-                        <p>Marley tried to convince her but she was not interested.</p>
+                        <h4>Phython</h4>
+                        <p>Apprentissages personnalisés, cours enseignés par des professionnels du monde du travail.</p>
                     </figcaption>
                 </figure>
             </div>
             <div class="col-md-4">
                 <figure class="effect-marley">
-                    <img src="{{ asset('img/9.jpg')}}" alt="" class="img-responsive"/>
+                    <img src="img/9.jpg" alt="" class="img-responsive"/>
                     <figcaption>
-                        <h4>sweet marley</h4>
-                        <p>Marley tried to convince her but she was not interested.</p>
+                        <h4>.NET</h4>
+                        <p>Apprentissages personnalisés, cours enseignés par des professionnels du monde du travail.</p>
                     </figcaption>
                 </figure>
             </div>
             <div class="col-md-4">
                 <figure class="effect-marley">
-                    <img src="{{ asset('img/10.jpg')}}" alt="" class="img-responsive"/>
+                    <img src="img/10.jpg" alt="" class="img-responsive"/>
                     <figcaption>
-                        <h4>sweet marley</h4>
-                        <p>Marley tried to convince her but she was not interested.</p>
+                        <h4>Angular</h4>
+                        <p>Apprendre de nouveles framework professionnels</p>
                     </figcaption>
                 </figure>
             </div>
@@ -236,44 +235,44 @@
         <div class="container">
             <div class="col-md-4">
                 <figure class="effect-marley">
-                    <img src="{{ asset('img/11.jpg')}}" alt="" class="img-responsive"/>
+                    <img src="img/11.jpg" alt="" class="img-responsive"/>
                     <figcaption>
-                        <h4>sweet marley</h4>
-                        <p>Marley tried to convince her but she was not interested.</p>
+                        <h4>Symfony</h4>
+                        <p>Apprentissages personnalisés, cours enseignés par des professionnels du monde du travail.</p>
                     </figcaption>
                 </figure>
             </div>
             <div class="col-md-4">
                 <figure class="effect-marley">
-                    <img src="{{ asset('img/12.jpg')}}" alt="" class="img-responsive"/>
+                    <img src="img/12.jpg" alt="" class="img-responsive"/>
                     <figcaption>
-                        <h4>sweet marley</h4>
-                        <p>Marley tried to convince her but she was not interested.</p>
+                        <h4>Spring</h4>
+                        <p>Apprentissages personnalisés, cours enseignés par des professionnels du monde du travail.</p>
                     </figcaption>
                 </figure>
             </div>
             <div class="col-md-4">
                 <figure class="effect-marley">
-                    <img src="{{ asset('img/13.jpg')}}" alt="" class="img-responsive"/>
+                    <img src="img/13.jpg" alt="" class="img-responsive"/>
                     <figcaption>
-                        <h4>sweet marley</h4>
-                        <p>Marley tried to convince her but she was not interested.</p>
+                        <h4>Laravel</h4>
+                        <p>Apprentissages personnalisés, cours enseignés par des professionnels du monde du travail.</p>
                     </figcaption>
                 </figure>
             </div>
         </div>
     </div>
-
+{% endblock %}
     <footer>
         <div class="container">
             <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                 <h4>About Us</h4>
-                <p>Day is tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters.</p>
+                <p>Contatez nous sur les reseaux sociaux</p>
                 <div class="contact-info">
                     <ul>
-                        <li><i class="fa fa-home fa"></i>Suite 54 Elizebth Street, Victoria State Newyork, USA </li>
-                        <li><i class="fa fa-phone fa"></i> +38 000 129900</li>
-                        <li><i class="fa fa-envelope fa"></i> info@domain.net</li>
+                        <li><i class="fa fa-home fa"></i>Cité el Ghazela technopole , TEK_UP, Tunis </li>
+                        <li><i class="fa fa-phone fa"></i> +216 71 129900</li>
+                        <li><i class="fa fa-envelope fa"></i> info@tek_up.net</li>
                     </ul>
                 </div>
             </div>
@@ -282,32 +281,32 @@
                 <div class="text-center">
                     <h4>Photo Gallery</h4>
                     <ul class="sidebar-gallery">
-                        <li><a href="#"><img src="{{ asset('img/gallery1.png')}}" alt="" /></a></li>
-                        <li><a href="#"><img src="{{ asset('img/gallery2.png')}}" alt="" /></a></li>
-                        <li><a href="#"><img src="{{ asset('img/gallery3.png')}}" alt="" /></a></li>
-                        <li><a href="#"><img src="{{ asset('img/gallery4.png')}}" alt="" /></a></li>
-                        <li><a href="#"><img src="{{ asset('img/gallery5.png')}}" alt="" /></a></li>
-                        <li><a href="#"><img src="{{ asset('img/gallery6.png')}}" alt="" /></a></li>
+                        <li><a href="#"><img src="img/gallery1.png" alt="" /></a></li>
+                        <li><a href="#"><img src="img/gallery2.png" alt="" /></a></li>
+                        <li><a href="#"><img src="img/gallery3.png" alt="" /></a></li>
+                        <li><a href="#"><img src="img/gallery4.png" alt="" /></a></li>
+                        <li><a href="#"><img src="img/gallery5.png" alt="" /></a></li>
+                        <li><a href="#"><img src="img/gallery6.png" alt="" /></a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
                 <div class="">
-                    <h4>Newsletter Registration</h4>
-                    <p>Subscribe today to receive the latest Day news via email. You may unsubscribe from this service at any time</p>
+                    <h4>Contact</h4>
+                    <p>Abonnez-vous aujourd'hui pour recevoir les dernières nouvelles de la journée par courrier électronique. Vous pouvez vous désabonner de ce service à tout moment</p>
                     <div class="btn-gamp">
                         <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter Email">
                     </div>
                     <div class="btn-gamp">
-                        <a type="submit" class="btn btn-default">Subscribe</a>
+                        <a type="submit" class="btn btn-default">S'inscrire</a>
                     </div>
 
                 </div>
 
             </div>
-    </footer>
-
+    </div>
+        </footer>
     <div class="sub-footer">
         <div class="container">
             <div class="social-icon">
@@ -324,7 +323,7 @@
 
             <div class="col-md-4 col-md-offset-4">
                 <div class="copyright">
-                    &copy; Day 2015 by <a target="_blank" href="http://bootstraptaste.com/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">Bootstrap Themes</a>.All Rights Reserved.
+                    &copy; Portail 2018 by <a target="_blank" href="http://bootstraptaste.com/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">Le Portail de La formation</a>.All Rights Reserved.
                 </div>
                 <!--
                     All links in the footer should remain intact.
@@ -336,7 +335,6 @@
     </div>
 
 
-{% endblock %}
 {% block javascripts %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('js/jquery.js')}}"></script>

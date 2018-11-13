@@ -35,6 +35,13 @@ class personne
      */
     private $prenom;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="age", type="integer")
+     */
+    private $age;
+
 
     /**
      * Get id
@@ -93,5 +100,28 @@ class personne
     {
         return $this->prenom;
     }
-}
 
+    /**
+     * Set age
+     *
+     * @param integer $age
+     *
+     * @return personne
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return integer
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+}
