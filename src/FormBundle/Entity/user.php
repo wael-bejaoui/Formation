@@ -12,6 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class user
 {
+
+    /**
+     * @var
+     *
+     * @ORM\ManyToMany(targetEntity="FormBundle\Entity\produit")
+     */
+    private $produit;
+
+    /**
+     * @var
+     *
+     * @ORM\ManyToMany(targetEntity="FormBundle\Entity\formation")
+     */
+    private $formation;
     /**
      * @var int
      *
@@ -123,5 +137,81 @@ class user
     public function getAge()
     {
         return $this->age;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->produit = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add produit
+     *
+     * @param \FormBundle\Entity\produit $produit
+     *
+     * @return user
+     */
+    public function addProduit(\FormBundle\Entity\produit $produit)
+    {
+        $this->produit[] = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Remove produit
+     *
+     * @param \FormBundle\Entity\produit $produit
+     */
+    public function removeProduit(\FormBundle\Entity\produit $produit)
+    {
+        $this->produit->removeElement($produit);
+    }
+
+    /**
+     * Get produit
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduit()
+    {
+        return $this->produit;
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \FormBundle\Entity\formation $formation
+     *
+     * @return user
+     */
+    public function addFormation(\FormBundle\Entity\formation $formation)
+    {
+        $this->formation[] = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \FormBundle\Entity\formation $formation
+     */
+    public function removeFormation(\FormBundle\Entity\formation $formation)
+    {
+        $this->formation->removeElement($formation);
+    }
+
+    /**
+     * Get formation
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormation()
+    {
+        return $this->formation;
     }
 }
