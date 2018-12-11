@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{%block body%}
+
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col" bgcolor="gray">ID</th>
+            <th scope="col" bgcolor="gray">Name</th>
+            <th scope="col" bgcolor="gray">Mail</th>
+            <th scope="col" bgcolor="gray">Password</th>
+            <th scope="col" bgcolor="gray">Role</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr class="table-active">
+                <td bgcolor="#8fbc8f">{{ user.id }}</td>
+                <td bgcolor="#8fbc8f">{{ user.name }}</td>
+                <td bgcolor="#8fbc8f">{{ user.login }}</td>
+                <td bgcolor="#8fbc8f">{{ user.psw }}</td>
+                <td bgcolor="#8fbc8f">{{user.roles[0]}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -2,13 +2,16 @@
 
 namespace FormBundle\Controller;
 
+use FormBundle\Entity\person;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     *@Route("/", name="homepage")
      */
     public function indexAction()
     {
@@ -53,5 +56,69 @@ class DefaultController extends Controller
     public function contact()
     {
         return $this->render('@Form/default/contact.html.twig');
+
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete")
+     */
+    public function delete($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(person::class)->find($id);
+        $em->remove($user);
+        $em->flush();
+        return $this->redirectToRoute('dashboard');
+
+    }
+
+    /**
+     * @Route("/view/{id}", name="view")
+     */
+    public function view($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(person::class)->find($id);
+        return $this->render('@Form/default/view.html.twig',[
+
+            'user'=>$user
+        ]);
+
+    }
+
+
+    /**
+     * @Route("/edit", name="edit")
+     */
+    public function edit($login)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(person::class)->find($login);
+
+        if (!$login) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$login
+            );
+        }
+
+        $user->setLogin('New product name!');
+        $em->flush();
+
+        return $this->redirectToRoute('dashboard');
+    }
+
+
+
+    /**
+     * @Route("/dashboard", name="dashboard")
+     */
+    public function dashboard()
+    {
+        $em= $this->getDoctrine()->getManager();
+        $users=$em->getRepository('FormBundle:person')->findAll();
+        return $this->render('@Form/default/dashboard.html.twig',[
+
+            'users'=>$users
+        ]);
     }
 }

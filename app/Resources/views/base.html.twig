@@ -36,13 +36,25 @@
                             <li role="presentation"><a href="{{ path('formation') }}">Formations</a></li>
                             <li role="presentation"><a href="{{ path('soft') }}">Softwares</a></li>
                             <li role="presentation"><a href="{{ path('contact') }}">Contact</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a href="{{ path('dashboard') }}">Administration</a></li>
+                            {% endif %}
+                            <li><form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                            </li>
+                           {# <li role="presentation"><a href="{{ path('security_login') }}">Connexion</a></li>
+                            {% else%}
+                            <li role="presentation"><a href="{{ path('security_logout') }}">Déconnexion</a></li>
+                            {% endif %}#}
                         </ul>
                     </div>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
-    {% block body %}
+   {% block body %}
     <div class="slider">
         <div id="about-slider">
             <div id="carousel-slider" class="carousel slide" data-ride="carousel">
@@ -66,12 +78,14 @@
                                 </div>
                             </div>
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
-                                <form class="form-inline">
+                                <form class="form-inline" method="post" action="/inscription">
                                     <div class="form-group">
-                                        <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
+                                    <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
                                     </div>
+                                </form>
+                                <form class="form_inline" method="post" action="/connexion">
                                     <div class="form-group">
-                                        <button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">S'abonner</button>
+                                        <button type="submit" name="Get Now" class="btn btn-primary btn-lg" required="required" >Connecter</button>
                                     </div>
                                 </form>
                             </div>
@@ -90,12 +104,14 @@
                                 </div>
                             </div>
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">
-                                <form class="form-inline">
+                                <form class="form-inline" method="post" action="/inscription">
                                     <div class="form-group">
-                                        <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
+                                        <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
                                     </div>
+                                </form>
+                                <form class="form_inline" method="post" action="/connexion">
                                     <div class="form-group">
-                                        <button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">S'abonner</button>
+                                        <button type="submit" name="Get Now" class="btn btn-primary btn-lg" required="required" >Connecter</button>
                                     </div>
                                 </form>
                             </div>
@@ -113,12 +129,14 @@
                                 </div>
                             </div>
                             <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
-                                <form class="form-inline">
+                                <form class="form-inline" method="post" action="/inscription">
                                     <div class="form-group">
-                                        <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
+                                        <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
                                     </div>
+                                </form>
+                                <form class="form_inline" method="post" action="/connexion">
                                     <div class="form-group">
-                                        <button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">S'abonner</button>
+                                        <button type="submit" name="Get Now" class="btn btn-primary btn-lg" required="required" >Connecter</button>
                                     </div>
                                 </form>
                             </div>
@@ -295,12 +313,16 @@
                 <div class="">
                     <h4>Contact</h4>
                     <p>Abonnez-vous aujourd'hui pour recevoir les dernières nouvelles de la journée par courrier électronique. Vous pouvez vous désabonner de ce service à tout moment</p>
-                    <div class="btn-gamp">
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter Email">
-                    </div>
-                    <div class="btn-gamp">
-                        <a type="submit" class="btn btn-default">S'inscrire</a>
-                    </div>
+                    <form class="form-inline" method="post" action="/contact">
+                        <div class="form-group">
+                            <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">Enter Mail</button>
+                        </div>
+                    </form>
+                    <form class="form-inline" method="post" action="/inscription">
+                        <div class="form-group">
+                            <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
+                        </div>
+                    </form>
 
                 </div>
 
@@ -312,11 +334,11 @@
             <div class="social-icon">
                 <div class="col-md-4">
                     <ul class="social-network">
-                        <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/FormationDeTunisie" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=fr" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
                         <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="https://www.youtube.com" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
                     </ul>
                 </div>
             </div>

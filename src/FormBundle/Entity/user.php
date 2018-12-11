@@ -14,6 +14,13 @@ class user
 {
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
      * @var
      *
      * @ORM\ManyToMany(targetEntity="FormBundle\Entity\produit")
@@ -213,5 +220,29 @@ class user
     public function getFormation()
     {
         return $this->formation;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return user
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

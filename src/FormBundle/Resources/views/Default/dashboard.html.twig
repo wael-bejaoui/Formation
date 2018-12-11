@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{%block body%}
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col" bgcolor="gray">ID</th>
+        <th scope="col" bgcolor="gray">Name</th>
+        <th scope="col" bgcolor="gray">Mail</th>
+        <th scope="col" bgcolor="gray">Role</th>
+        <th scope="col" bgcolor="gray">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr class="table-active">
+        <td bgcolor="#8fbc8f">{{ user.id }}</td>
+        <td bgcolor="#8fbc8f">{{ user.name }}</td>
+        <td bgcolor="#8fbc8f">{{ user.login }}</td>
+        <td bgcolor="#8fbc8f">{{ user.login }}</td>
+        <td>
+            <a  class="btn btn-success btn-xs" href="{{ absolute_url(asset(''))}}view/{{ user.id }}" >view</a>
+            <a class="btn btn-danger-xs" href="{{ absolute_url(asset(''))}}delete/{{ user.id }}">delete</a>>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

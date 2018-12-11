@@ -18,6 +18,7 @@ class formateur
      *
      * @ORM\OneToMany(targetEntity="FormBundle\Entity\formation",mappedBy="formateur")
      */
+
     private $formation;
     /**
      * @var int
@@ -34,6 +35,14 @@ class formateur
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
+    private $mail;
+
 
     /**
      * @var string
@@ -202,5 +211,29 @@ class formateur
     public function getFormation()
     {
         return $this->formation;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return formateur
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
     }
 }

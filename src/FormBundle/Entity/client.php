@@ -38,6 +38,13 @@ class client
     /**
      * @var string
      *
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
@@ -278,5 +285,29 @@ class client
     public function getUniversity()
     {
         return $this->university;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return client
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
     }
 }
