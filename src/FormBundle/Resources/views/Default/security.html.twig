@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+{% form_theme form "bootstrap_3_layout.html.twig" %}
+{% block body %}
+
+    <section class="contact-page">
+        <div class="container">
+            <div class="text-center">
+                <h2>Inscription</h2>
+                <p>Inscrire pour avoir un compte personnel utilisateur chez notre plateforme le portail de la formation</p>
+            </div>
+            <div class="row contact-wrap">
+                <div class="status alert alert-success" style="display: none"></div>n</h2>
+        </div>
+      {{ form_start(form)}}
+
+        <div class="form-group">
+        <label for="exampleInputEmail1"> <h3>Nom d'utilisateur</h3></label>
+            {{ form_errors(form.name) }}
+       {{ form_widget(form.name, {'attr': {'placeholder': 'Nom d\'utlisateur'} }) }}
+
+
+         </div>
+ <div class="form-group">
+     <label for=""> <h3>Adresse Mail</h3></label>
+    {{ form_errors(form.login) }}
+     {{ form_widget(form.login,{'attr':{'placeholder':"Adresse Mail"}}) }}
+ </div>
+ <div class="form-group">
+     <label for="exampleInputPassword1"> <h3>Mot de passe </h3></label>
+     {{ form_errors(form.psw, {'attr' : {'class' : 'red'}}) }}
+     {{ form_widget(form.psw,{'attr':{'placeholder':"Mot de passe"}}) }}
+ </div>
+ <div class="form-group">
+     <label for=""> <h3>Confirmer mot de passe</h3></label>
+     <div class='error'>{{ form_errors(form.pswc) }}</div>
+     {{ form_widget(form.pswc,{'attr':{'placeholder':"confirmer votre mot de pass"}}) }}
+ </div>
+
+            <div class="form-group">
+                <label for=""> <h3>Role</h3></label>
+                {{ form_errors(form.roles) }}
+                {{ form_widget(form.roles,{'attr':{'placeholder':"Role"}}) }}
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">S'inscrire</button>
+
+                </div>
+
+        </div>
+        {{ form_errors(form) }}
+    {{ form_end(form) }}
+    </section>
+{% endblock %}
